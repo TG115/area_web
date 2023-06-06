@@ -1,4 +1,18 @@
 
+body {
+	background: #141E30;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #424a52, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #424a52, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	min-height: 100vh; 
+	margin:0; 
+	display:flex; 
+	flex-direction:column;
+}
+
+.container {
+	flex:1;
+}
+
 .rank_master {
 	background: url(/img/master.webp) -190px -250px;
 	-webkit-text-fill-color: transparent;
@@ -84,7 +98,7 @@
 	padding-left: 10px;
 }
 
-.zeus-myinfo {
+.area-myinfo {
 	background-color: #645641!important;
 }
 

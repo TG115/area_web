@@ -31,7 +31,7 @@ function libConnect() {
 	global $mysqli;
 
 	if (!$mysqli) {
-		$mysqli = @mysqli_connect('localhost', 'root', '', 'elysium2') or include('err_db.php');
+		$mysqli = @mysqli_connect('localhost', 'root', '', 'vrpfx') or include('err_db.php');
 		@mysqli_set_charset($mysqli, 'utf8');
 	}
 	return $mysqli ;
