@@ -66,5 +66,29 @@
             $nickname = SQL_getUserName($take_id);
             libReturn("nickname", array("user_id"=>$take_id, "nickname"=>$nickname));
             break;
+
+        case 'kick':
+            $take_id = $_POST['take_id'];
+            $reason = $_POST['reason'];
+            $nickname = SQL_getUserName($take_id);
+            SQL_set_cron('킥', $take_id, $reason);
+            libReturn("success", array("user_id"=>$take_id, "nickname"=>$nickname));
+            break;
+
+        case 'ban':
+            $take_id = $_POST['take_id'];
+            $reason = $_POST['reason'];
+            $nickname = SQL_getUserName($take_id);
+            SQL_set_cron('밴', $take_id, $reason);
+            libReturn("success", array("user_id"=>$take_id, "nickname"=>$nickname));
+            break;
+
+        case 'unban':
+            $take_id = $_POST['take_id'];
+            $reason = $_POST['reason'];
+            $nickname = SQL_getUserName($take_id);
+            SQL_set_cron('밴해제', $take_id, $reason);
+            libReturn("success", array("user_id"=>$take_id, "nickname"=>$nickname));
+            break;
     }
 ?>

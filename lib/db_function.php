@@ -53,4 +53,10 @@
     	return $r;
 	}
 
+    function SQL_set_cron($type, $user_id, $text) {
+        libQuery("
+            INSERT INTO rora_cron (type, give_id, take_id, text)
+            VALUES (?, ?, ?, ?)
+        ", 'siis', [$type, $_SESSION['user_id'], $user_id, $text]);
+    }
 ?>

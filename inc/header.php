@@ -10,14 +10,32 @@
         <ul class="navbar-nav ml-auto">
 		  <? if (isset($_SESSION['area_id'])) { ?>
         <li class="nav-item dropdown px-2">
-          <a class="nav-link dropdown-toggle" style="color:mediumpurple" href="#" id="adm_item" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle text-success" href="#" id="adm_ingame" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="mb-0 text-sm">인게임 설정</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="adm_ingame">
+            <a class="dropdown-item" href="/adm/playerKick">플레이어 킥</a>
+            <a class="dropdown-item" href="/adm/playerBan">플레이어 밴</a>
+            <a class="dropdown-item" href="/adm/playerUnban">플레이어 밴 해제</a>
+          </div>  
+        </li>
+        <li class="nav-item dropdown px-2">
+          <a class="nav-link dropdown-toggle text-warning" href="#" id="adm_item" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="mb-0 text-sm">아이템 관리</span>
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="adm_item">
             <a class="dropdown-item" href="/adm/giveItem">아이템 지급</a>
+          </div>  
+        </li>
+        <li class="nav-item dropdown px-2">
+          <a class="nav-link dropdown-toggle text-danger" href="#" id="adm_log" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="mb-0 text-sm">로그 관리</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="adm_log">
             <a class="dropdown-item" href="/adm/giveLog">아이템 지급 로그</a>
-            <hr>
             <a class="dropdown-item" href="/adm/quickLog">퀵배송 로그</a>
+            <hr>
+            <a class="dropdown-item" href="/adm/kickBanLog">킥/밴 로그</a>
           </div>  
         </li>
 		    <li class="nav-item dropdown px-2">
