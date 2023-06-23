@@ -44,6 +44,8 @@
             <a class="dropdown-item" href="/adm/kickBanLog">킥/밴 로그</a>
             <hr>
             <a class="dropdown-item" href="/adm/carLog">차량 로그</a>
+            <hr>
+            <a class="dropdown-item" href="/adm/groupLog">권한 로그</a>
           </div>  
         </li>
 		    <li class="nav-item dropdown px-2">

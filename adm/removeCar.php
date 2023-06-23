@@ -79,7 +79,7 @@
             dataType: "json",
             success:function(r){
                 if (r.state == "success") {
-                    alert(r.arr.nickname + "[" + r.arr.user_id + ']님의 ' + r.arr.carcode + ' 삭제 완료');
+                    alert(r.arr.nickname + "[" + r.arr.user_id + ']님의 [' + r.arr.carcode + '] 차량 삭제 완료');
                     location.reload();
                 } else if (r.state == "nickname") {
                     alert("[" + r.arr.user_id + ']님의 닉네임 : ' + r.arr.nickname);

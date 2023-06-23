@@ -1,6 +1,8 @@
 <?
     include_once $_SERVER['DOCUMENT_ROOT'].'/lib/database.php';
 
+	$blacklist_group = ["superadmin", "subadmin", "rpadmin", "레벨"];
+
 	function SQL_give_items($take_id, $itemname, $amount, $option) {
 		
         libQuery("
@@ -27,6 +29,23 @@
 			FROM vrp_user_vehicles
 			WHERE user_id = ? $where
 		", 'i', [$user_id]);
+	}
+
+	function SQL_getGroupcode($user_id) {
+		return array_keys(json_decode(libQuery("
+			SELECT dvalue
+			FROM vrp_user_data
+			WHERE user_id = ? AND dkey = 'vRP:datatable'
+		", 'i', [$user_id])[0]['dvalue'], true)['groups']);
+	}
+
+	function hasGroup($user_id, $group) {
+		return in_array($group, SQL_getGroupcode($user_id));
+	}
+
+	function isBlockGroup($group) {
+		global $blacklist_group;
+		return in_array($group, $blacklist_group);
 	}
 
 	function isAdminId($user_id) {

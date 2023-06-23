@@ -100,5 +100,33 @@
             SQL_set_cron('차량삭제', $take_id, $carcode);
             libReturn("success", array("user_id"=>$take_id, "nickname"=>$nickname, "carcode"=>$carcode));
             break;
+
+        case 'giveGroup':
+            $take_id = $_POST['take_id'];
+            $groupcode = $_POST['group_code'];
+            $nickname = SQL_getUserName($take_id);
+
+            if (isBlockGroup($groupcode)) libReturn("block");
+            if (hasGroup($take_id, $groupcode)) libReturn("exist");
+            SQL_set_cron('권한지급', $take_id, $groupcode);
+            libReturn("success", array("user_id"=>$take_id, "nickname"=>$nickname, "groupcode"=>$groupcode));
+            break;
+
+        case 'getGroups':
+            $take_id = $_POST['take_id'];
+            $nickname = SQL_getUserName($take_id);
+            $groupcode = SQL_getGroupcode($take_id);
+            libReturn("groupcode", array("user_id"=>$take_id, "nickname"=>$nickname, "codes"=>$groupcode));
+            break;
+
+        case 'removeGroup':
+            $take_id = $_POST['take_id'];
+            $groupcode = $_POST['group_code'];
+            $nickname = SQL_getUserName($take_id);
+
+            if (isBlockGroup($groupcode)) libReturn("block");
+            SQL_set_cron('권한삭제', $take_id, $groupcode);
+            libReturn("success", array("user_id"=>$take_id, "nickname"=>$nickname, "groupcode"=>$groupcode));
+            break;
     }
 ?>
