@@ -46,21 +46,6 @@
             }
             break;
 
-        case 'givePoint':
-            $take_id = $_POST['take_id'];
-            $amount = $_POST['give_amount'];
-
-            if ($amount > 0) {
-                $give_id = $_SESSION['user_id'];
-                $nickname = SQL_getUserName($take_id);
-                SQL_pointLog($take_id, "포인트 지급", SQL_getUserName($give_id) . " [{$give_id}] 님으로부터 수령", $amount);
-                SQL_setUserPoint($take_id, $amount);
-                libReturn("success", array("user_id"=>$take_id, "nickname"=>$nickname, "itemname"=>"포인트", "amount"=>$amount));
-            } else {
-                libReturn("개수를 확인해주세요.");
-            }
-            break;
-
         case 'checkId':
             $take_id = $_POST['take_id'];
             $nickname = SQL_getUserName($take_id);
@@ -89,6 +74,31 @@
             $nickname = SQL_getUserName($take_id);
             SQL_set_cron('밴해제', $take_id, $reason);
             libReturn("success", array("user_id"=>$take_id, "nickname"=>$nickname));
+            break;
+
+        case 'giveCar':
+            $take_id = $_POST['take_id'];
+            $carcode = $_POST['car_code'];
+            $nickname = SQL_getUserName($take_id);
+
+            if (count(SQL_getCarcode($take_id, $carcode))) libReturn("exist");
+            SQL_set_cron('차량지급', $take_id, $carcode);
+            libReturn("success", array("user_id"=>$take_id, "nickname"=>$nickname, "carcode"=>$carcode));
+            break;
+
+        case 'getCars':
+            $take_id = $_POST['take_id'];
+            $nickname = SQL_getUserName($take_id);
+            $carcode = SQL_getCarcode($take_id);
+            libReturn("carcode", array("user_id"=>$take_id, "nickname"=>$nickname, "codes"=>$carcode));
+            break;
+
+        case 'removeCar':
+            $take_id = $_POST['take_id'];
+            $carcode = $_POST['car_code'];
+            $nickname = SQL_getUserName($take_id);
+            SQL_set_cron('차량삭제', $take_id, $carcode);
+            libReturn("success", array("user_id"=>$take_id, "nickname"=>$nickname, "carcode"=>$carcode));
             break;
     }
 ?>

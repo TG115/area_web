@@ -20,6 +20,14 @@
 		return trim(str_replace('?', '', $name));
 	}
 
+	function SQL_getCarcode($user_id, $code = '') {
+		$where = $code ? "AND vehicle = '$code'" : '';
+		return libQuery("
+			SELECT vehicle
+			FROM vrp_user_vehicles
+			WHERE user_id = ? $where
+		", 'i', [$user_id]);
+	}
 
 	function isAdminId($user_id) {
 		$r = false;

@@ -21,11 +21,17 @@
         </li>
         <li class="nav-item dropdown px-2">
           <a class="nav-link dropdown-toggle text-warning" href="#" id="adm_item" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <span class="mb-0 text-sm">아이템 관리</span>
+            <span class="mb-0 text-sm">유저 지급 관리</span>
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="adm_item">
             <a class="dropdown-item" href="/adm/giveItem">아이템 지급</a>
-          </div>  
+            <hr>
+            <a class="dropdown-item" href="/adm/giveCar">차량 지급</a>
+            <a class="dropdown-item" href="/adm/removeCar">차량 삭제</a>
+            <hr>
+            <a class="dropdown-item" href="/adm/giveGroup">권한 지급</a>
+            <a class="dropdown-item" href="/adm/removeGroup">권한 삭제</a>
+          </div>
         </li>
         <li class="nav-item dropdown px-2">
           <a class="nav-link dropdown-toggle text-danger" href="#" id="adm_log" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -36,6 +42,8 @@
             <a class="dropdown-item" href="/adm/quickLog">퀵배송 로그</a>
             <hr>
             <a class="dropdown-item" href="/adm/kickBanLog">킥/밴 로그</a>
+            <hr>
+            <a class="dropdown-item" href="/adm/carLog">차량 로그</a>
           </div>  
         </li>
 		    <li class="nav-item dropdown px-2">
