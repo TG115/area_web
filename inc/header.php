@@ -10,6 +10,15 @@
         <ul class="navbar-nav ml-auto">
 		  <? if (isset($_SESSION['area_id'])) { ?>
         <li class="nav-item dropdown px-2">
+          <a class="nav-link dropdown-toggle text-info" href="#" id="adm_info" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="mb-0 text-sm">유저 정보 설정</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="adm_info">
+            <a class="dropdown-item" href="/adm/changeUserid">고유번호 변경</a>
+            <a class="dropdown-item" href="/adm/changeUserInfo">개인정보 변경</a>
+          </div>  
+        </li>
+        <li class="nav-item dropdown px-2">
           <a class="nav-link dropdown-toggle text-success" href="#" id="adm_ingame" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="mb-0 text-sm">인게임 설정</span>
           </a>

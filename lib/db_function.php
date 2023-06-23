@@ -39,6 +39,58 @@
 		", 'i', [$user_id])[0]['dvalue'], true)['groups']);
 	}
 
+	function SQL_hasId($user_id) {
+		return libQuery("
+			SELECT COUNT(*) AS cnt
+			FROM vrp_users
+			WHERE id = ?
+		", 'i', [$user_id])[0]['cnt'];
+	}
+
+	function SQL_setId($user_id, $new_id) {
+		libQuery("UPDATE vrp_users SET id=? WHERE id=?", 'ii', [$new_id, $user_id]);
+		libQuery("UPDATE vrp_user_data SET user_id=? WHERE user_id=?", 'ii', [$new_id, $user_id]);
+		libQuery("UPDATE vrp_user_identities SET user_id=? WHERE user_id=?", 'ii', [$new_id, $user_id]);
+		libQuery("UPDATE vrp_user_ids SET user_id=? WHERE user_id=?", 'ii', [$new_id, $user_id]);
+		libQuery("UPDATE vrp_user_moneys SET user_id=? WHERE user_id=?", 'ii', [$new_id, $user_id]);
+		libQuery("UPDATE vrp_user_vehicles SET user_id=? WHERE user_id=?", 'ii', [$new_id, $user_id]);
+		libQuery("UPDATE vrp_warning SET user_id=? WHERE user_id=?", 'ii', [$new_id, $user_id]);
+		libQuery("UPDATE vrp_dailycheck SET user_id=? WHERE user_id=?", 'ii', [$new_id, $user_id]);
+		libQuery("UPDATE vrp_ptime SET user_id=? WHERE user_id=?", 'ii', [$new_id, $user_id]);
+	}
+
+	function SQL_getCarNo($user_id, $car_no) {
+		return libQuery("
+			SELECT user_id
+			FROM vrp_user_identities
+			WHERE user_id <> ? AND registration = ?
+		", 'is', [$user_id, $car_no]);
+	}
+
+	function SQL_getTelNo($user_id, $tel_no) {
+		return libQuery("
+			SELECT user_id
+			FROM vrp_user_identities
+			WHERE user_id <> ? AND phone = ?
+		", 'is', [$user_id, $tel_no]);
+	}
+
+	function SQL_getUserInfo($user_id) {
+		return libQuery("
+			SELECT registration, phone
+			FROM vrp_user_identities
+			WHERE user_id = ?
+		", 'i', [$user_id]);
+	}
+
+	function SQL_setUserInfo($user_id, $car_no, $tel_no) {
+		libQuery("
+			UPDATE vrp_user_identities
+			SET registration = ?, phone = ?
+			WHERE user_id = ?
+		", 'ssi', [$car_no, $tel_no, $user_id]);
+	}
+
 	function hasGroup($user_id, $group) {
 		return in_array($group, SQL_getGroupcode($user_id));
 	}
