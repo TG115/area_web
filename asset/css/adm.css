@@ -22,25 +22,77 @@
   z-index: -99;
 }
 
-.text-box {
-    position: absolute;
-    left: 50%;
-    top: 30%;
-    padding: 50px;
+@media (min-width: 1100px) {
+    .text-box {
+        position: absolute;
+        left: 50%;
+        top: 30%;
+        padding: 50px;
+    }
+
+    .text-glow {
+        font-weight: bold;
+        font-style: italic;
+        font-size: 40px;
+        color: #fff !important;
+        padding: 0 !important;
+        text-shadow: 0 0 10px #fff,
+                    0 0 20px #ad50f8,
+                    0 0 30px #a442f5,
+                    0 0 40px #a439fc,
+                    0 0 50px #9c2cf8,
+                    0 0 80px #9722f7,
+                    0 0 100px #9119f3;
+        border-radius: 10px;
+    }
 }
 
-.text-glow {
-    font-weight: bold;
-    font-style: italic;
-    font-size: 40px;
-    color: #fff !important;
-    padding: 0 !important;
-    text-shadow: 0 0 10px #fff,
-                0 0 20px #ad50f8,
-                0 0 30px #a442f5,
-                0 0 40px #a439fc,
-                0 0 50px #9c2cf8,
-                0 0 80px #9722f7,
-                0 0 100px #9119f3;
-	border-radius: 10px;
+@media (max-width: 1100px) {
+    .text-box {
+        position: absolute;
+        left: 0%;
+        top: 50%;
+        padding: 50px;
+    }
+
+    .text-glow {
+        font-weight: bold;
+        font-style: italic;
+        font-size: 20px;
+        color: #fff !important;
+        padding: 0 !important;
+        text-shadow: 0 0 2px #fff,
+                    0 0 4px #ad50f8,
+                    0 0 6px #a442f5,
+                    0 0 8px #a439fc,
+                    0 0 10px #9c2cf8,
+                    0 0 16px #9722f7,
+                    0 0 20px #9119f3;
+        border-radius: 2px;
+    }
+}
+
+@media (max-width: 724px) {
+    .text-box {
+        position: absolute;
+        left: 0%;
+        top: 40%;
+        padding: 50px;
+    }
+
+    .text-glow {
+        font-weight: bold;
+        font-style: italic;
+        font-size: 20px;
+        color: #fff !important;
+        padding: 0 !important;
+        text-shadow: 0 0 2px #fff,
+                    0 0 4px #ad50f8,
+                    0 0 6px #a442f5,
+                    0 0 8px #a439fc,
+                    0 0 10px #9c2cf8,
+                    0 0 16px #9722f7,
+                    0 0 20px #9119f3;
+        border-radius: 2px;
+    }
 }
