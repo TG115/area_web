@@ -42,7 +42,7 @@
 		$_SESSION['area_nickname'] = $r[0]['nickname'];
 		$_SESSION['user_id'] = $r[0]['user_id'];
 		if ($r[0]['grade'] > 0) $_SESSION['isadmin'] = true;
-		header('location:/adm/giveItem');
+		header('location:/adm/');
 	} else {
 		print "<script> alert('회원정보가 일치하지 않습니다.'); location.replace('/'); </script>";
 	}

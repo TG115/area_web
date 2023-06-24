@@ -1,9 +1,9 @@
 <?
     if (!isset($_SESSION)) session_start();
     if (!isset($_SESSION['area_id'])) {
-        echo '<script>alert("로그인 후 이용하실 수 있습니다."); location.href="/.php";</script>';
+        echo '<script>alert("로그인 후 이용하실 수 있습니다."); location.href="/";</script>';
         if (!isset($_SESSION['isadmin'])) {
-            echo '<script>alert("이용 권한이 없습니다."); location.href="/.php";</script>';
+            echo '<script>alert("이용 권한이 없습니다."); location.href="/";</script>';
         }
     }
 
